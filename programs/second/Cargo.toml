@@ -1,0 +1,24 @@
+[package]
+name = "second"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "second"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.18.2"
+anchor-spl = {version = "0.18.2"}
+spl-token = {version = "3.2.0", features = ["no-entrypoint"]}
+solana-program = "=1.8.0"
+borsh = "0.9.1"
+borsh-derive = "0.9.1"
+first = { path = "../first", features = ["cpi"] }
